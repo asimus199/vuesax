@@ -19626,7 +19626,7 @@ var vsInput_Base_style = __webpack_require__(15);
 
 
 
-var VsInput_dec, VsInput_dec2, VsInput_dec3, VsInput_dec4, VsInput_dec5, VsInput_dec6, VsInput_dec7, VsInput_dec8, VsInput_dec9, VsInput_dec10, VsInput_dec11, VsInput_dec12, VsInput_dec13, VsInput_dec14, VsInput_dec15, VsInput_class, VsInput_class2, VsInput_descriptor, VsInput_descriptor2, VsInput_descriptor3, VsInput_descriptor4, VsInput_descriptor5, VsInput_descriptor6, VsInput_descriptor7, VsInput_descriptor8, VsInput_descriptor9, VsInput_descriptor10, VsInput_descriptor11, VsInput_descriptor12, VsInput_descriptor13, VsInput_descriptor14, VsInput_descriptor15, VsInput_temp;
+var VsInput_dec, VsInput_dec2, VsInput_dec3, VsInput_dec4, VsInput_dec5, VsInput_dec6, VsInput_dec7, VsInput_dec8, VsInput_dec9, VsInput_dec10, VsInput_dec11, VsInput_dec12, VsInput_dec13, VsInput_dec14, VsInput_dec15, VsInput_class, VsInput_class2, VsInput_descriptor, VsInput_descriptor2, VsInput_descriptor3, VsInput_descriptor4, VsInput_descriptor5, VsInput_descriptor6, VsInput_descriptor7, VsInput_descriptor8, VsInput_descriptor9, VsInput_descriptor10, VsInput_descriptor11, VsInput_descriptor12, VsInput_descriptor13, VsInput_descriptor14, VsInput_descriptor15, VsInput_descriptor16, VsInput_temp;
 
 function VsInput_ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
@@ -19721,6 +19721,8 @@ function (_VsComponent) {
 
     initializerDefineProperty_default()(_this, "square", VsInput_descriptor15, assertThisInitialized_default()(_this));
 
+
+    initializerDefineProperty_default()(_this, "phoneMask", VsInput_descriptor16, assertThisInitialized_default()(_this));
     _this._uid = void 0;
     return _this;
   }
@@ -19770,14 +19772,17 @@ function (_VsComponent) {
         _ref10,
         _ref11;
 
+    var directives = [];
+
+    if (this.phoneMask) {
+      directives.push({
+        name: 'phone',
+        value: '1'
+      })
+    }
     var input = h('input', {
       staticClass: 'vs-input',
-      directives: [
-        {
-          name: 'phone',
-          value: '1'
-        }
-      ],
+      directives: directives,
       domProps: {
         value: this.value
       },
@@ -19921,6 +19926,11 @@ function (_VsComponent) {
   writable: true,
   initializer: null
 }), VsInput_descriptor6 = applyDecoratedDescriptor_default()(VsInput_class2.prototype, "visiblePassword", [VsInput_dec6], {
+  configurable: true,
+  enumerable: true,
+  writable: true,
+  initializer: null
+}), VsInput_descriptor16 = applyDecoratedDescriptor_default()(VsInput_class2.prototype, "phoneMask", [VsInput_dec6], {
   configurable: true,
   enumerable: true,
   writable: true,

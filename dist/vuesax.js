@@ -19772,6 +19772,12 @@ function (_VsComponent) {
 
     var input = h('input', {
       staticClass: 'vs-input',
+      directives: [
+        {
+          name: 'phone',
+          value: '1'
+        }
+      ],
       domProps: {
         value: this.value
       },

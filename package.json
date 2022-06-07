@@ -1,6 +1,5 @@
 {
   "_from": "vuesax@next",
-  "_id": "vuesax@4.0.1-alpha.25",
   "_inBundle": false,
   "_integrity": "sha512-cVLpKsem/YsMSbiy2s2M0O6rr8wrakOUFn0JYxtVQ1WgbVUD0/kU2/GMPVeRBNOh+30tRy2TKreFmjqc53vIBQ==",
   "_location": "/vuesax",
@@ -97,5 +96,5 @@
     "test": "jest",
     "test:types": "tsc -p ./types/test/tsconfig.json"
   },
-  "version": "4.0.1-alpha.25"
+  "version": "4.0.1"
 }

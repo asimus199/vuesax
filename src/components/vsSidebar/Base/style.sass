@@ -43,6 +43,10 @@
     position: absolute !important
     z-index: 9001
     height: 100%
+  &.fixed
+    position: fixed !important
+    z-index: 9001
+    height: 100%
   &.relative
     position: relative !important
     z-index: 9001
@@ -104,6 +108,7 @@
       &:after
         left: -6px
   .vs-sidebar__logo
+  .vs-sidebar__logo
     display: flex
     align-items: center
     justify-content: center
@@ -115,7 +120,7 @@
       max-height: 35px
   .vs-sidebar
     overflow-x: hidden
-    width: 100%
+    width: 275px
     flex-grow: 1
     display: flex
     align-items: flex-start

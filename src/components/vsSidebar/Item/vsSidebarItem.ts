@@ -56,6 +56,20 @@ export default class VsSidebarItem extends VsComponent {
       this.$slots.arrow || iconArrow
     ])
 
+    const iconActive = h('i', {
+      staticClass: 'vs-sidebar__item__chevron bx bx-chevron-right'
+    })
+
+    const item = h('div', {
+      staticClass: 'vs-sidebar__box'
+    }, [
+      this.$slots.icon && icon,
+      text,
+      textTooltip,
+      iconActive,
+      this.$slots.arrow || this.arrow && arrow
+    ])
+
     return h('button', {
       staticClass: 'vs-sidebar__item',
       class: {
@@ -71,10 +85,7 @@ export default class VsSidebarItem extends VsComponent {
         }
       }
     }, [
-      this.$slots.icon && icon,
-      text,
-      textTooltip,
-      this.$slots.arrow || this.arrow && arrow
+      item
     ])
   }
 }

@@ -1,4 +1,10 @@
 @import '../../../styles/mixins'
+.vs-sidebar__box
+  display: flex
+  align-items: center
+  width: 100%
+  border-radius: 10px
+  margin-left: 5px
 .vs-sidebar__item
   width: 100%
   padding: 14px 16px
@@ -39,9 +45,13 @@
   &.active
     opacity: 1
     // background: -color('background', .1) !important
-    color: -color('color')
+    color: #000000
     &:after
       transform: translate(0px)
+    .vs-sidebar__item__chevron
+      opacity: 1
+    .vs-sidebar__box
+      background: -color('color')
   &__icon
     min-width: 50px
     height: 47px
@@ -50,7 +60,6 @@
     justify-content: center
     font-size: 1.2rem
     z-index: 50
-    background: -color('background')
   &:hover:not(.hasIcon)
     opacity: 1
     padding-left: 25px
@@ -61,6 +70,11 @@
     z-index: 10
     transition: all .25s ease
     font-size: .9rem
+  &__chevron
+    margin-left: auto
+    padding-right: 5px
+    font-size: 20px
+    opacity: 0
   &__arrow
     width: 7px
     height: 7px

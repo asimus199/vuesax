@@ -21,6 +21,7 @@ export default class VsInput extends VsComponent {
   @Prop({ type: Boolean, default: false }) transparent!: boolean
   @Prop({ type: Boolean, default: false }) textWhite!: boolean
   @Prop({ type: Boolean, default: false }) square!: boolean
+  @Prop({ type: Boolean, default: false }) textarea!: boolean
 
   // tslint:disable-next-line:variable-name
   _uid: any
@@ -39,7 +40,7 @@ export default class VsInput extends VsComponent {
 
   enter(el: any, done: any) {
     let h = el.scrollHeight
-    el.style.height = h - 1 + 'px'
+    el.style.height = h + 'px'
     done()
   }
 
@@ -66,8 +67,7 @@ export default class VsInput extends VsComponent {
   }
 
   public render(h: any): VNode {
-
-    const input = h('input', {
+    const input = h(this.textarea ? 'textarea' : 'input', {
       staticClass: 'vs-input',
       domProps: {
         value: this.value

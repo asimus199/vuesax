@@ -16,6 +16,7 @@ export default class VsSidebar extends VsComponent {
   @Prop({ default: false, type: Boolean }) notShadow: boolean
   @Prop({ default: false, type: Boolean }) relative: boolean
   @Prop({ default: false, type: Boolean }) absolute: boolean
+  @Prop({ default: false, type: Boolean }) fixed: boolean
   @Prop({ default: false, type: Boolean }) right: boolean
   @Prop({ default: 'background', type: String }) background: string
 
@@ -64,9 +65,7 @@ export default class VsSidebar extends VsComponent {
   }
 
   clickCloseSidebar(evt: any) {
-    if (!(evt.target as any).closest('.vs-sidebar-content')) {
-      this.$emit('update:open', false)
-    }
+    this.$emit('update:open', false)
   }
 
   handleClickItem(id: string) {
@@ -125,6 +124,7 @@ export default class VsSidebar extends VsComponent {
         textWhite: this.textWhite,
         relative: this.relative,
         absolute: this.absolute,
+        fixed: this.fixed,
         right: this.right
       },
       // colors

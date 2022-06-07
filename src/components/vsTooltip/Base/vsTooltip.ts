@@ -1,11 +1,12 @@
 import { VNode } from 'vue'
 import { Component, Prop, Watch } from 'vue-property-decorator'
 import VsComponent from '../../../mixins/component'
-import { insertBody, setCordsPosition } from '../../../util/index'
+import {insertBody, removeBody, setCordsPosition} from '../../../util/index'
 
 @Component
 export default class VsTooltip extends VsComponent {
 
+  tooltipEl: any = null
   activeTooltip: boolean = false
 
   isHoverTooltip: boolean = false
@@ -38,9 +39,20 @@ export default class VsTooltip extends VsComponent {
 
   @Prop({ default: null, type: String }) delay: any
 
+  beforeDestroy() {
+    if (this.tooltipEl) {
+      removeBody(this.tooltipEl, document.body)
+      this.tooltipEl = null
+    }
+
+    window.removeEventListener('resize', this.handleResize)
+    window.removeEventListener('mousedown', this.handleMouseDownNotHover)
+  }
+
   insertTooltip() {
     const tooltip = this.$refs.tooltip as HTMLElement
     insertBody(tooltip, document.body)
+    this.tooltipEl = tooltip;
 
     let position = 'top'
     if (this.bottom) {
@@ -72,6 +84,7 @@ export default class VsTooltip extends VsComponent {
 
   removeTooltip() {
     this.activeTooltip = false
+    this.tooltipEl = null
     this.$emit('input', false)
   }
 
@@ -127,12 +140,6 @@ export default class VsTooltip extends VsComponent {
     }
 
     window.addEventListener('touchstart', this.handleMouseDownNotHover)
-  }
-
-  beforeDestroy() {
-    this.activeTooltip = false
-    window.removeEventListener('resize', this.handleResize)
-    window.removeEventListener('mousedown', this.handleMouseDownNotHover)
   }
 
   public render(h: any): VNode {

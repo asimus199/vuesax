@@ -4,6 +4,7 @@ import * as vsLayouts from './layout/index'
 import './styles/vuesax.sass'
 import { defineVuesaxOptions, VuesaxOptions } from './util/defineVuesaxOptions'
 
+
 const install = (Vue: any, options?: VuesaxOptions) => {
   // Components
   Object.values(vsComponents).forEach((vsComponent) => {
